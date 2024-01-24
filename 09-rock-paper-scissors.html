@@ -95,6 +95,7 @@
             score.ties+=1;
           }
           //(name, value), local storage save the variables even if we refresh the website
+          //only store as its a string, thats why we need to parse it back later using JSON
           localStorage.setItem('score', JSON.stringify(score));
 
           updateScoreElement();
