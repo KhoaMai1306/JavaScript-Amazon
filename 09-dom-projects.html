@@ -16,8 +16,42 @@
     
     " class="js-subcribe-button">Subscribe</button>
 
-    <script>
+    <p>Amazon Shipping Cakculator</p>
 
+    <input placeholder="Cost of order" class="js-cost-input"  onkeydown="
+    handleCostKeyDown(event);
+    "> 
+
+    <button onclick="
+    calculateTotal();
+    
+    ">Calculate</button>
+
+    <p class="js-total-cost"></p>
+
+    <script>
+      //On key is another event call the same as onClick when action is made, event.key shows the value of what we have type down on key board
+      function handleCostKeyDown(event){
+        if(event.key ==='Enter'){
+          calculateTotal();
+    }
+      }
+
+
+      function calculateTotal(){
+        const inputElement = document.querySelector('.js-cost-input');
+        //input need a .value to take instead of innerhtml  , result will be a string always 
+        //Number() method convert a string into a number      
+        let cost= Number(inputElement.value); 
+
+        if(cost<40){
+          cost= cost+10;
+        }
+
+        document.querySelector('.js-total-cost').innerHTML= `$${cost}`;
+
+
+      }
 
     </script>
   </body>
