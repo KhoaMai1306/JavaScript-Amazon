@@ -19,12 +19,17 @@
     playGame('scissors');
     "> Scissors</button>
 
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+
+
     <button onClick="
     score.wins=0;
     score.losses=0;
     score.ties=0;
-    
     localStorage.removeItem('score');
+    updateScoreElement();
     ">Reset Score</button>
 
     <script>
@@ -49,7 +54,8 @@
           }
         }
         */
-   
+        
+
         function playGame(playerMove){
           const computerMove= pickComputerMove();
 
@@ -91,10 +97,14 @@
           //(name, value), local storage save the variables even if we refresh the website
           localStorage.setItem('score', JSON.stringify(score));
 
+          updateScoreElement();
+          document.querySelector('.js-moves').innerHTML= `You picked ${playerMove}. Computer pick ${computerMove}`;
+          document.querySelector('.js-result').innerHTML= `${result}`;
 
-          alert(`You picked ${playerMove}. Computer pick ${computerMove}.${result}
-          Wins: ${score.wins}, Losses: ${score.losses}, Tie: ${score.ties}` );
+        }
 
+        function updateScoreElement(){
+          document.querySelector('.js-score').innerHTML=`Wins: ${score.wins}, Losses: ${score.losses}, Tie: ${score.ties}`;
         }
 
         function pickComputerMove(){
