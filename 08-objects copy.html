@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Objects</title>
+  </head>
+  
+  <body>
+    <script>
+        /*
+        const product={
+            name: 'socks',
+            price: 1090
+        };
+        console.log(product);
+        console.log(product.name);
+        console.log(product.price);
+
+        product.name = 'cotton socks';
+        console.log(product);
+
+        //add a new element of object
+        product.newProperty = true;
+        console.log(product);
+
+        //delete an element
+        delete product.newProperty;
+        console.log(product);
+        */
+
+        //2 ways to ccreate element
+        // we can also create object in object(nested-object)
+        // function within the object (called method)  ---> object.function  = method
+        const product2 ={
+            name: 'shirt',
+            'derivery-time' : '1 day',
+            rating: {
+                stars: 4.5,
+                count: 87
+            },
+
+            fun: function function1(){
+                console.log('function inside object');
+            }
+        }
+        //there are 2 ways to access the element
+        // we use bracket[] when we cant access with dot. 
+
+        console.log(product2.name);
+        console.log(product2['derivery-time']);
+
+        //nested object
+        console.log(product2.rating.count);
+
+        //run function inside object
+        product2.fun();
+
+        //JSON OBJECT syntax ( a less feature version of JS with build-in function)
+        console.log(JSON.stringify(product2));
+
+        //convert JSON to JS
+        const jsonString= JSON.stringify(product2)
+        console.log(JSON.parse(jsonString));
+        
+
+        console.log('hello'.length);
+
+    </script>
+  </body>
+</html>
