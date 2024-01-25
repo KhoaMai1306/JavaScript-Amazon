@@ -90,3 +90,4 @@ let score= JSON.parse(localStorage.getItem('score')) || {
       }
       return computerMove;
   }
+  //This was cool, I leanred pushing this things up!
