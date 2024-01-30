@@ -8,6 +8,7 @@
     
 
     <script>
+        /*
         function greeting(){
             console.log('hello');
         }
@@ -37,13 +38,50 @@
             console.log(param);
         }
         display(2);
-
+        //passing a function into a function(called back function)
         function run(param){
-
+            param()
         }
-        run(function())
+        run(function(){
+            console.log('hello4');
+        });
+        */$
 
 
+        /*
+        //after 3000ms(3s) run the function (Asynchronous function, run when time is out doesnt matter first or after)
+        setTimeout(function(){
+            console.log('timeout');
+            console.log('timeout2');
+        },3000);
+
+        //synchronous code (wait for a prev run then go)
+        console.log('next line');
+
+
+        //Asynchronous which run infinitely after a given time
+        setInterval(function(){
+            console.log('interval');
+        }, 3000);
+
+        console.log('next line2');
+        */$
+
+
+        //work better than for loop
+        [
+            'make dinners',
+            'wash dishes',
+            'watch youtube'
+        ].forEach(function(value,index){
+            //skip wash dishes , same as continue
+            if(value==='wash dishes'){
+                return;
+            }
+
+            console.log(index);
+            console.log(value);
+        });
 
     </script>
         
