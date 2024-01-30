@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Advanced Functions</title>
+    
+  </head>
+  <body>
+    
+
+    <script>
+        function greeting(){
+            console.log('hello');
+        }
+
+        greeting();
+
+        const num=2;
+        //annonymus function
+        const function1 = function(){
+            console.log('hello2');
+        };
+
+        console.log(function1);
+        console.log(typeof function1);
+        function1();
+
+        //functions are considered as value, so we can ust it in here
+        const object1={
+            num: 2,
+            fun: function() {
+                console.log('hello3');
+            }
+        };
+        objects1.fun();
+
+        function display(param){
+            console.log(param);
+        }
+        display(2);
+
+        function run(param){
+
+        }
+        run(function())
+
+
+
+    </script>
+        
+   
+  </body>
+</html>
+
+
+
