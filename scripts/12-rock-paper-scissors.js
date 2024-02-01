@@ -21,9 +21,13 @@ let score= JSON.parse(localStorage.getItem('score')) || {
   */
   let isAutoPlaying = false;
   let intervalId ;
+
+  //const autoPlay = () =>{
+  //};
+
   function autoPlay(){
     if(!isAutoPlaying){
-      intervalId= setInterval(function(){
+      intervalId= setInterval(() => {    //using => instead of function()
         const playerMove =pickComputerMove();
         playGame(playerMove);
       },1000);
@@ -35,6 +39,33 @@ let score= JSON.parse(localStorage.getItem('score')) || {
       isAutoPlaying = false;
     }
   }
+
+  // this function to replace on click attribute in html
+  document.querySelector('.js-rock-button').addEventListener('click',() =>{
+    playGame('rock'); // we need to right it like this instead of 'click', playGame('rock'), if not it will result in undefined, not sure why tho
+  });
+
+  document.querySelector('.js-paper-button').addEventListener('click',() =>{
+    playGame('paper'); 
+  });
+
+  document.querySelector('.js-scissors-button').addEventListener('click',() =>{
+    playGame('scissors'); 
+  });
+
+  //we use this to run code on keyboard r,p,s instead of clicking it (keydown of addEventListener) , event variable is needed in () , event.key returns what we type on keyboard
+  document.body.addEventListener('keydown',(event) =>{
+    if (event.key ==='r'){
+      playGame('rock');
+    }
+    else if(event.key ==='p'){
+      playGame('paper');
+    }
+    else if(event.key ==='s'){
+      playGame('scissors');
+    }
+
+  })
 
   function playGame(playerMove){
     const computerMove= pickComputerMove();

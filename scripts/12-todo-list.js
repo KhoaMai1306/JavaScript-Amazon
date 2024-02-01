@@ -11,7 +11,7 @@ function renderTodoList(){
     let todoListHTML ='';
 
 
-    todoList.forEach(function(todoObject,index){
+    todoList.forEach((todoObject,index) => {   // we use arrow function so delete function before (todo...)
         const {name, dueDate}= todoObject;
         //we can assign an object in js as an element in html using ``
         //within `` , we can work it as multi-type value, if we wanna get an object or variable, use ${}
@@ -21,11 +21,8 @@ function renderTodoList(){
 
         <div> ${dueDate} </div>
 
-        <button onClick="
-            todoList.splice(${index},1);
-            renderTodoList();
-        " class="delete-todo-buttom">Delete</button>
-        
+        <button 
+        " class="delete-todo-buttom js-delete-todo-button">Delete</button>
         
         `;
         todoListHTML+=html;
@@ -34,7 +31,24 @@ function renderTodoList(){
     //query helps access html element to JS, .innerHTML access the thing inside that element (after the first <>....)
     //this part shows the whole list of what we had so far
     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+
+    //querySelectorAll give all element with class cited, do the samething as onClick for the Delete button
+    document.querySelectorAll('.js-delete-todo-button')
+        .forEach((deleteButton,index) =>{
+            deleteButton.addEventListener('click', ()=>{
+                todoList.splice(index,1);
+                renderTodoList();
+            });
+        });
 }
+
+
+
+//replace onclick attribute
+document.querySelector('.js-add-todo-button')
+.addEventListener('click',() =>{
+    addTodo();
+})
 
 function addTodo(){
     const inputElement = document.querySelector('.js-name-input');

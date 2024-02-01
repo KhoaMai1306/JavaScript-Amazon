@@ -5,9 +5,33 @@
     
   </head>
   <body>
+    <button onClick="
+        
+    " class = "js-button">Click</button>
     
 
     <script>
+        /*
+        // does the same thing as on click (event, function we want to run), also list of event we have : onClick... ( so whatever after on)
+        const buttonElement = document.querySelector('.js-button');
+
+        const eventListener = () => {
+            console.log('click');
+        };
+        
+        
+        buttonElement.addEventListener('click',eventListener    // we use arrow function here ( actually to shorten code when we tryna do function into function);
+        ); 
+
+        buttonElement.addEventListener('click',() =>{    // we use arrow function here ( actually to shorten code when we tryna do function into function) , this is the way in case we dont create variable which we actually put a function into the second parameter
+            console.log('click2');
+        });
+
+        buttonElement.removeEventListener('click', removeEventListener  // remove it and then just put the name of variable
+        )
+
+        */
+
         /*
         function greeting(){
             console.log('hello');
@@ -68,12 +92,13 @@
         */$
 
 
+        /*
         //work better than for loop
         [
             'make dinners',
             'wash dishes',
             'watch youtube'
-        ].forEach(function(value,index){
+        ].forEach((value,index) => {    // use arrow function when passing a function into a function
             //skip wash dishes , same as continue
             if(value==='wash dishes'){
                 return;
@@ -82,6 +107,61 @@
             console.log(index);
             console.log(value);
         });
+
+        const regularFunction = function(param,param2){
+            console.log('hello');
+            return 5;
+        }
+
+        const arrowFunction = (param,param2) =>{
+            console.log('hello');
+            return 5;
+        };
+        arrowFunction();
+
+        //we dont need to use () in arrow functuion with 1 parameter
+        const oneParam = param => {
+            console.log(param +1);
+        };
+        oneParam(2);
+
+        // it can also use it withoout {} and no return call needed
+        const oneLine =() => 2+3;
+
+        console.log(oneLine());
+
+        const object2 = {
+            method: () => {
+
+            },
+            method() {
+
+            }
+        };
+        */
+
+        //run as for each, create a new array, if all return true then return in a new array, if false then no
+        [1,-3,5].filter((value,index)=>{
+
+            /*
+            if (value>=0){
+                return true;
+            }
+            else{
+                return false;
+            }
+            */
+            return value>=0; //runs as above function
+        });
+
+        //create a new array, return whatever we put on return statement as a new value for each 
+        [1,1,3].map((value,index)=>{
+            return value *2;
+        })
+
+        //shortcut for above, since only 1 para needed to use, only 1 line code
+        [1,1,3].map(value => value*2);
+
 
     </script>
         
